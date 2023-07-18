@@ -1,0 +1,153 @@
+.header{
+    background-color: $main;
+    color: #fff;
+    padding: 5px 0px;
+    .inner{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 10px;
+        
+
+    }
+    .logo,.topbar-actions{
+        width: 150px;
+    }
+    .logo{
+        img{
+            height: 43px;
+        }
+    }
+    ul{
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 7px;
+        row-gap: 10px;
+        a{
+            padding: 8px 15px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            display: block;
+        }
+        .active{
+            >a{
+                font-weight: 600;
+                background-color: rgba(#fff,0.1);
+            }
+        }
+        li:hover{
+            >a{
+                background-color: rgba(#fff,0.1);
+            }
+        }
+    }
+    .topbar-actions{
+        display: flex;
+        column-gap: 5px;
+        align-items: center;
+        .topbar-btn{
+            padding: 7px;
+            cursor: pointer;
+        }
+        .icon{
+            font-size: 20px;
+        }
+        .avatar{
+            cursor: pointer;
+        }
+    }
+    .dropdown-user{
+        padding: 0px;
+        border-radius: 10px;
+        overflow: hidden;
+        .dropdown-item{
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            column-gap: 7px;
+            .text-m{
+                flex: 1;
+                min-width: 0px;
+            }
+        }
+        .icon{
+            font-size: 16px;
+            color: $textD;
+        }
+        .dropdown-top{
+            display: flex;
+            column-gap: 10px;
+            align-items: center;
+            border-bottom: 1px solid $border;
+            .avatar{
+                width: 48px;
+                height: 48px;
+            }
+            .text-content{
+                flex: 1;
+                min-width: 0px;
+            }
+            .name{
+                font-weight: 500;
+            }
+            .mail{
+                font-size: 12px;
+                color: $textD;
+            }
+        }
+    }
+    .nav-toggle{
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        font-size: 24px;
+        cursor: pointer;
+        display: none;
+        
+    }
+}
+
+@media(max-width:1000px){
+    .header{
+        .nav-toggle{
+            display: flex;
+        }
+        .menus{
+            position: fixed;
+            background-color: $main;
+            bottom: 0px;
+            top: 0px;
+            left: 0px;
+            z-index: 200;
+            padding: 10px;
+            display: block;
+            width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            left: -100%;
+            transition: all 0.3s ease;
+            li{
+                width: 100%;
+            }
+        }
+        .logo{
+            flex: 1;
+            min-width: 0px;
+        }
+        &.show{
+            .menus{
+                opacity: 1;
+                visibility: visible;
+                left:0;
+                transition: all 0.3s ease;
+            }
+        }
+    }
+    
+}
